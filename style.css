@@ -1,0 +1,169 @@
+/* Reset default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: palevioletred;
+    overflow: hidden;
+    color: #fff;
+}
+
+/* Partikel efek untuk background */
+.particle-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://source.unsplash.com/1600x900/?stars,night') center/cover no-repeat;
+    background-size: cover;
+    animation: particleAnimation 10s infinite linear;
+    z-index: -1;
+}
+
+/* Animasi Partikel */
+@keyframes particleAnimation {
+    0% { transform: scale(1) translateY(0); opacity: 0.3; }
+    50% { transform: scale(1.1) translateY(-100px); opacity: 0.6; }
+    100% { transform: scale(1) translateY(0); opacity: 0.3; }
+}
+
+/* Hati animasi bergerak di background */
+.heart {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 0, 0, 0.7);
+    clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
+    animation: heartAnimation 4s infinite ease-in-out;
+}
+
+.heart-2 {
+    left: 10%;
+    top: 10%;
+    animation-delay: 1s;
+}
+
+.heart-3 {
+    left: 70%;
+    top: 50%;
+    animation-delay: 2s;
+}
+
+@keyframes heartAnimation {
+    0% { transform: scale(1) translateY(0); opacity: 0.8; }
+    50% { transform: scale(1.2) translateY(-20px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); opacity: 0.8; }
+}
+
+/* Container for the card */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Card styling with 3D flip effect */
+.card {
+    width: 350px;
+    height: 500px;
+    perspective: 1500px;
+    position: relative;
+}
+
+.card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Front part of the card */
+.card-front {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-back {
+    background: linear-gradient(135deg, #ff5e62, #ff9966);
+    border-radius: 20px;
+    transform: rotateY(180deg);
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 50px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Title and intro text */
+.title {
+    font-size: 2.5em;
+    color: #ff69b4;
+    font-weight: bold;
+}
+
+.gombalan-intro {
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Button styling with glowing effect */
+.button {
+    background: linear-gradient(145deg, #ff5e62, #ff9966);
+    color: white;
+    font-size: 1.1em;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Gombalan output text with fade-in effect */
+.gombal-output {
+    font-size: 1.2em;
+    color: #ff5e62;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-top: 30px;
+}
+
+.gombal-output.visible {
+    opacity: 1;
+}
+
